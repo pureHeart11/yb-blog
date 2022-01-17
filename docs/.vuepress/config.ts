@@ -6,7 +6,7 @@ export default defineUserConfig<DefaultThemeOptions>({
   lang: 'en-CN',
   title: 'yb',
   description: 'yb 的个人博客',
-  base: '/ybBlog/',
+  base: '/yb-blog/',
   // 主题和它的配置
   theme: '@vuepress/theme-default',
   // theme: '@org/vuepress-theme-bar',
