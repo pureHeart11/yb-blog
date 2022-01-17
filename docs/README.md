@@ -22,18 +22,6 @@ description: 这是首页
 
 VuePress 2 已经发布 :tada: ！
 
-```ts
-import type { UserConfig } from '@vuepress/cli'
-
-export const config: UserConfig = {
-  title: '你好， VuePress',
-
-  themeConfig: {
-    logo: 'https://vuejs.org/images/logo.png'
-  }
-}
-```
-
 1 + 2 + 3 = {{ 1 + 2 + 3 }}
 
 ```md
