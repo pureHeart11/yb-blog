@@ -4,55 +4,6 @@ title: 首页
 description: 这是首页
 ---
 
-<!-- 相对路径 -->
+yb 的文档以及平时的一些学习笔记，方便查缺补漏
 
-[首页](../README.md)
-[配置参考](./guide/start.md)
-[快速上手](./getting-started.md)
-
-<!-- 绝对路径 -->
-
-[指南](/guide/start.md)
-[配置参考 > markdown.links](/zh/reference/config.md#links)
-
-<!-- URL -->
-
-[baidu](https://www.baidu.com)
-[guide 页](./guide/start.md)
-
-VuePress 2 已经发布 :tada: ！
-
-1 + 2 + 3 = {{ 1 + 2 + 3 }}
-
-```md
-<!-- 默认情况下，这里会被保持原样 -->
-
-1 + 2 + 3 = {{ 1 + 2 + 3 }}
-```
-
-```md:no-v-pre
-<!-- 这里会被 Vue 编译 -->
-1 + 2 + 3 = {{ 1 + 2 + 3 }}
-```
-
-@[code{1-3}](./test/index.js)
-
-<Badge text="演示" />
-
-<CodeGroup>
-  <CodeGroupItem title="YARN">
-
-```bash:no-line-numbers
-yarn
-```
-
-  </CodeGroupItem>
-
-  <CodeGroupItem title="NPM" active>
-
-```bash:no-line-numbers
-npm install
-```
-
-  </CodeGroupItem>
-</CodeGroup>
+https://pureheart11.github.io/yb-blog/
