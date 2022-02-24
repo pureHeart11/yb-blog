@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2022-01-05 19:58:51
+ * @LastEditTime: 2022-02-24 09:34:35
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: /vuepress-starter/docs/.vuepress/config.ts
+ */
 import { defineUserConfig } from 'vuepress'
 import type { DefaultThemeOptions } from 'vuepress'
 const { path } = require('@vuepress/utils')
@@ -27,9 +35,17 @@ export default defineUserConfig<DefaultThemeOptions>({
         link: '/'
       },
       {
+        text: 'JS 基础',
+        collapsible: true,
+        children: [{ text: 'JavaScript深入之继承的多种方式和优缺点', link: '/basis/extend' }]
+      },
+      {
         text: '设计模式',
         collapsible: true,
-        children: [{ text: '观察者模式和订阅-发布模式的区别', link: '/designPatterns/observer' }]
+        children: [
+          { text: '单例模式', link: '/designPatterns/single' },
+          { text: '观察者模式和订阅-发布模式的区别', link: '/designPatterns/observer' }
+        ]
       },
       {
         text: '手撕代码',
@@ -50,6 +66,11 @@ export default defineUserConfig<DefaultThemeOptions>({
           { text: '千分位分隔符', link: '/code/thousandthSplit' }
         ]
       }
+      // {
+      //   text: '其他',
+      //   collapsible: true,
+      //   children: [{ text: 'gitlabRunner', link: '/other/gitlabRunner' }]
+      // }
     ]
   },
   plugins: [
