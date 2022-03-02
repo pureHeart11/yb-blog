@@ -48,7 +48,7 @@ function resolvePromise(promise2, x, resolve, reject) {
 class Promise {
   constructor(executor) {
     //默认状态是等待状态
-    this.status = 'panding'
+    this.status = 'pending'
     this.value = undefined
     this.reason = undefined
     //存放成功的回调

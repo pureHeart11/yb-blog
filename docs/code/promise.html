@@ -4,43 +4,127 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>promise</title>
   </head>
-  <body>
-    <textarea name="" id="" cols="30" rows="10"></textarea>
-  </body>
+  <body></body>
   <script>
-    class MyPromise {
+    class Promise {
       constructor(executor) {
-        let status = 'pending'
-        let value = undefined
-        let reason = undefined
+        this.status = 'pending'
+        this.value = undefined
+        this.reason = undefined
 
-        let onResolvedCallback = []
-        let onRejectedCallback = []
+        this.onResolvedCallback = []
+        this.onRejectedCallback = []
 
-        let resolve = value => {
+        let resolve = data => {
           if (this.status === 'pending') {
-            this.value = value
-            this.status = 'resolved'
-            this.onResolvedCallback.forEach(fn => fn())
+            setTimeout(() => {
+              this.status = 'resolved'
+              this.value = data
+              this.onResolvedCallback.forEach(fn => fn())
+            })
           }
         }
 
         let reject = reason => {
           if (this.status === 'pending') {
-            this.reason = reason
-            this.status = 'rejected'
-            this.onRejectedCallback.forEach(fn => fn())
+            setTimeout(() => {
+              this.status = 'rejected'
+              this.reason = reason
+              this.onRejectedCallback.forEach(fn => fn())
+            })
           }
         }
 
         try {
           executor(resolve, reject)
-        } catch (error) {
+        } catch (err) {
           reject(err)
         }
       }
+
+      then(onFulfilled, onRejected) {
+        onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : y => y
+        onRejected = typeof onRejected === 'function' ? onRejected : y => y
+        let that = this
+
+        return new Promise((resolve, reject) => {
+          if (that.status === 'resolved') {
+            try {
+              resolve(onFulfilled(this.value))
+            } catch (err) {
+              reject(err)
+            }
+          }
+
+          if (that.status === 'rejected') {
+            try {
+              resolve(onRejected(this.reason))
+            } catch (err) {
+              reject(err)
+            }
+          }
+
+          if (that.status === 'pending') {
+            that.onResolvedCallback.push(() => resolve(onFulfilled(this.value)))
+            that.onRejectedCallback.push(() => resolve(onRejected(this.reason)))
+          }
+        })
+      }
+
+      catch(onRejected) {
+        return this.then(null, onRejected)
+      }
     }
+
+    Promise.all = function (promises) {
+      return new Promise((resolve, reject) => {
+        let arr = []
+        let i = 0
+        function processData(i, data) {
+          arr[i] = data
+          if (++i === promises.length) {
+            resolve(arr)
+          }
+        }
+
+        for (let i = 0; i < promises.length; i++) {
+          promises[i].then(
+            data => {
+              processData(i, data)
+            },
+            err => reject(err)
+          )
+        }
+      })
+    }
+    Promise.race = function (promises) {
+      return new Promise((resolve, reject) => {
+        for (let i = 0; i < promises.length; i++) {
+          promises[i].then(
+            res => resolve(res),
+            err => reject(err)
+          )
+        }
+      })
+    }
+    // 生成一个失败的promise
+    Promise.reject = function (reason) {
+      return new Promise((resolve, reject) => reject(reason))
+    }
+
+    Promise.reject('err!!!')
+      .then(
+        res => {
+          console.log('success', res)
+        },
+        err => {
+          console.log('error', err)
+        }
+      )
+      .catch(err => {
+        console.log('catch', err)
+      })
   </script>
 </html>
