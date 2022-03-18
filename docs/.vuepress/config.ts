@@ -6,9 +6,9 @@
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /vuepress-starter/docs/.vuepress/config.ts
  */
-import { defineUserConfig } from 'vuepress'
-import type { DefaultThemeOptions } from 'vuepress'
-const { path } = require('@vuepress/utils')
+import { defineUserConfig } from 'vuepress';
+import type { DefaultThemeOptions } from 'vuepress';
+const { path } = require('@vuepress/utils');
 
 export default defineUserConfig<DefaultThemeOptions>({
   // 站点配置
@@ -65,6 +65,11 @@ export default defineUserConfig<DefaultThemeOptions>({
           { text: '解析url', link: '/code/parseUrl' },
           { text: '千分位分隔符', link: '/code/thousandthSplit' }
         ]
+      },
+      {
+        text: '微前端',
+        collapsible: true,
+        children: [{ text: '快速搭建基于umi-qiankun+ant-design-pro的微前端中后台', link: '/microWeb/qiankun1' }]
       }
       // {
       //   text: '其他',
@@ -82,4 +87,4 @@ export default defineUserConfig<DefaultThemeOptions>({
       }
     ]
   ]
-})
+});
