@@ -69,7 +69,10 @@ export default defineUserConfig<DefaultThemeOptions>({
       {
         text: '微前端',
         collapsible: true,
-        children: [{ text: '快速搭建基于umi-qiankun+ant-design-pro的微前端中后台', link: '/microWeb/qiankun1' }]
+        children: [
+          { text: '快速搭建基于umi-qiankun+ant-design-pro的微前端中后台', link: '/microWeb/qiankun1' },
+          { text: '动态注册子应用', link: '/microWeb/qiankun2' }
+        ]
       }
       // {
       //   text: '其他',
