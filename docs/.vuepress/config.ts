@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2022-01-05 19:58:51
- * @LastEditTime: 2022-02-24 09:34:35
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-05-10 11:18:00
+ * @LastEditors: 李元庆 liyuanq@weipaitang.com
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /vuepress-starter/docs/.vuepress/config.ts
  */
@@ -72,6 +72,16 @@ export default defineUserConfig<DefaultThemeOptions>({
         children: [
           { text: '快速搭建基于umi-qiankun+ant-design-pro的微前端中后台', link: '/microWeb/qiankun1' },
           { text: '动态注册子应用', link: '/microWeb/qiankun2' }
+        ]
+      },
+      {
+        text: '面试题',
+        collapsible: true,
+        children: [
+          {
+            text: 'webpack',
+            link: '/interview/webpack'
+          }
         ]
       }
       // {

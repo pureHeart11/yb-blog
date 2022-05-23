@@ -1,29 +1,20 @@
 ```javascript
-function deepClone(target, cache = new Map()) {
-  const isObject = v => typeof v === 'object' && v != null
+function deepClone(obj, hash = new WeakMap()) {
+  if (obj === null) return obj;
+  if (obj instanceof Date) return new Date(obj);
+  if (obj instanceof RegExp) return new RegExp(obj);
+  if (typeof obj !== 'object') return obj;
+  if (hash.get(obj)) return hash.get(obj);
 
-  if (isObject(target)) {
-    // 解决循环引用
-    const cacheTarget = cache.get(target)
-    // 已经存在直接返回，无需再次解析
-    if (cacheTarget) {
-      return cacheTarget
+  let cloneObj = new obj.constructor();
+
+  hash.set(obj, cloneObj);
+
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      cloneObj[key] = deepClone(obj[key], hash);
     }
-
-    let cloneTarget = Array.isArray(target) ? [] : {}
-
-    cache.set(target, cloneTarget)
-
-    for (const key in target) {
-      if (target.hasOwnProperty(key)) {
-        const value = target[key]
-        cloneTarget[key] = isObject(value) ? deepClone(value) : value
-      }
-    }
-
-    return cloneTarget
   }
-
-  return target
+  return cloneObj;
 }
 ```
