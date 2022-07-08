@@ -2,7 +2,7 @@
 
 ```javascript
 function format1(str) {
-  return str.replace(/(?!^)(?=(\d{3})+$)/g, ',');
+  return str.replace(/\B(?=(\d{3})+\b)/g, ',');
 }
 
 // 测试

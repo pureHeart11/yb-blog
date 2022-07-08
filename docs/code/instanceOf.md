@@ -5,18 +5,18 @@ instanceof 运算符用于检测构造函数的 prototype 属性是否出现在�
 2. instanceof 常用来判断 A 是否为 B 的实例
 
 ```javascript
-function instanceOf(C, D) {
-  D = D.prototype
-  C = C.__proto__
+function instanceOf(A, B) {
+  A = A.__proto__;
+  B = B.prototype;
 
   while (true) {
-    if (C === null) {
-      return false
+    if (A === null) {
+      return false;
     }
-    if (C === D) {
-      return true
+    if (A === B) {
+      return true;
     }
-    C = C.__proto__
+    A = A.__proto__;
   }
 }
 ```
