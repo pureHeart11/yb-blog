@@ -1,29 +1,29 @@
 ### 1. webpack 配置中用过哪些 Loader？都有哪些作用
 
-- <font color=#ff502c>style-loader</font>：将处理好的 css 通过 style 标签的形式添加到页面上
-- <font color=#ff502c>css-loader</font>：处理 css
-- <font color=#ff502c>postcss-loader</font>：自动添加 CSS3 部分属性的浏览器前缀
-- <font color=#ff502c>less-loader</font>：识别 less 文件
-- <font color=#ff502c>sass-loader</font>：识别 sass 文件（搭配 node-sass 一起使用）
-- <font color=#ff502c>file-loader</font>：解决图片引入问题，并将图片 copy 到指定目录，默认为 dist
-- <font color=#ff502c>url-loader</font>：依赖 file-loader，当图片小于 limit 值的时候，会将图片转为 base64 编码，大于 limit 值的时候依然是使用 file-loader 进行拷贝
+- ==style-loader==：将处理好的 css 通过 style 标签的形式添加到页面上
+- ==css-loader==：处理 css
+- ==postcss-loader==：自动添加 CSS3 部分属性的浏览器前缀
+- ==less-loader==：识别 less 文件
+- ==sass-loader==：识别 sass 文件（搭配 node-sass 一起使用）
+- ==file-loader==：解决图片引入问题，并将图片 copy 到指定目录，默认为 dist
+- ==url-loader==：依赖 file-loader，当图片小于 limit 值的时候，会将图片转为 base64 编码，大于 limit 值的时候依然是使用 file-loader 进行拷贝
   > webpack5 新增资源模块(asset module)，允许使用资源文件（字体，图标等）而无需配置额外的 loader。
-- <font color=#ff502c>image-loader</font>：加载并且压缩图片文件
-- <font color=#ff502c>babel-loader</font>：ES6 转换成 ES5
-- <font color=#ff502c>ts-loader</font>：将 TypeScript 转换成 JavaScript
-- <font color=#ff502c>eslint-loader</font>：通过 ESLint 检查 JavaScript 代码
-- <font color=#ff502c>cache-loader</font>：可以在一些性能开销较大的 Loader 之前添加，目的是将结果缓存到磁盘里
+- ==image-loader==：加载并且压缩图片文件
+- ==babel-loader==：ES6 转换成 ES5
+- ==ts-loader==：将 TypeScript 转换成 JavaScript
+- ==eslint-loader==：通过 ESLint 检查 JavaScript 代码
+- ==cache-loader==：可以在一些性能开销较大的 Loader 之前添加，目的是将结果缓存到磁盘里
 
 ### 2. webpack 配置中用过哪些 Plugin？都有哪些作用
 
-- <font color=#ff502c>html-webpack-plugin</font>：生成 html 文件并引入外部资源
-- <font color=#ff502c>clean-webpack-plugin</font>：自动清空打包目录
-- <font color=#ff502c>mini-css-extract-plugin</font>：css 文件引入
-- <font color=#ff502c>webpack-bundle-analyzer</font>：构建结果分析
-- <font color=#ff502c>optimize-css-assets-webpack-plugin</font>：压缩 css
-- <font color=#ff502c>uglifyjs-webpack-plugin</font>：不支持 ES6 压缩 (Webpack4 以前)
-- <font color=#ff502c>terser-webpack-plugin</font>：支持压缩 ES6 (Webpack4)
-- <font color=#ff502c>purgecss-webpack-plugin</font>：清除无用 css
+- ==html-webpack-plugin==：生成 html 文件并引入外部资源
+- ==clean-webpack-plugin==：自动清空打包目录
+- ==mini-css-extract-plugin==：css 文件引入
+- ==webpack-bundle-analyzer==：构建结果分析
+- ==optimize-css-assets-webpack-plugin==：压缩 css
+- ==uglifyjs-webpack-plugin==：不支持 ES6 压缩 (Webpack4 以前)
+- ==terser-webpack-plugin==：支持压缩 ES6 (Webpack4)
+- ==purgecss-webpack-plugin==：清除无用 css
 
 ### 3. Loader 和 Plugin 有什么区别？
 
