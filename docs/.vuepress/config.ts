@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-01-05 19:58:51
- * @LastEditTime: 2022-05-10 11:18:00
+ * @LastEditTime: 2022-09-01 17:55:23
  * @LastEditors: 李元庆 liyuanq@weipaitang.com
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /vuepress-starter/docs/.vuepress/config.ts
@@ -67,6 +67,20 @@ export default defineUserConfig<DefaultThemeOptions>({
         ]
       },
       {
+        text: '算法',
+        collapsible: true,
+        children: [
+          {
+            text: '两数之和',
+            link: '/alg/twoSum'
+          },
+          {
+            text: '二分查找',
+            link: '/alg/binarySearch'
+          }
+        ]
+      },
+      {
         text: '微前端',
         collapsible: true,
         children: [
@@ -81,6 +95,26 @@ export default defineUserConfig<DefaultThemeOptions>({
           {
             text: 'webpack',
             link: '/interview/webpack'
+          }
+        ]
+      },
+      {
+        text: '资源',
+        collapsible: true,
+        children: [
+          {
+            text: '资源',
+            link: '/sources/source'
+          }
+        ]
+      },
+      {
+        text: '日常',
+        collapsible: true,
+        children: [
+          {
+            text: '工具库',
+            link: '/daily/utils'
           }
         ]
       }
