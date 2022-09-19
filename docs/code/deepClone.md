@@ -17,4 +17,8 @@ function deepClone(obj, hash = new WeakMap()) {
   }
   return cloneObj;
 }
+
+// 测试
+let add = curry(dynamicAdd);
+document.write(add(1, 2, 3)(9)(5, 2));
 ```

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-01-05 19:58:51
- * @LastEditTime: 2022-09-01 17:55:23
+ * @LastEditTime: 2022-09-02 10:36:25
  * @LastEditors: 李元庆 liyuanq@weipaitang.com
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /vuepress-starter/docs/.vuepress/config.ts
@@ -63,7 +63,8 @@ export default defineUserConfig<DefaultThemeOptions>({
           { text: '冒泡', link: '/code/bubble' },
           { text: 'promise', link: '/code/promise' },
           { text: '解析url', link: '/code/parseUrl' },
-          { text: '千分位分隔符', link: '/code/thousandthSplit' }
+          { text: '千分位分隔符', link: '/code/thousandthSplit' },
+          { text: '柯里化', link: '/code/curry' }
         ]
       },
       {
@@ -118,11 +119,6 @@ export default defineUserConfig<DefaultThemeOptions>({
           }
         ]
       }
-      // {
-      //   text: '其他',
-      //   collapsible: true,
-      //   children: [{ text: 'gitlabRunner', link: '/other/gitlabRunner' }]
-      // }
     ]
   },
   plugins: [
