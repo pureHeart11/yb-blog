@@ -1,77 +1,42 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Lazyload</title>
+    <style>
+      img {
+        display: block;
+        margin-bottom: 50px;
+        height: 200px;
+        width: 400px;
+      }
+    </style>
   </head>
   <body></body>
   <script>
-    const arr = [
-      {
-        id: 2,
-        name: '部门B',
-        parentId: 0
-      },
-      {
-        id: 3,
-        name: '部门C',
-        parentId: 1
-      },
-      {
-        id: 1,
-        name: '部门A',
-        parentId: 2
-      },
-      {
-        id: 4,
-        name: '部门D',
-        parentId: 1
-      },
-      {
-        id: 5,
-        name: '部门E',
-        parentId: 2
-      },
-      {
-        id: 6,
-        name: '部门F',
-        parentId: 3
-      },
-      {
-        id: 7,
-        name: '部门G',
-        parentId: 2
-      },
-      {
-        id: 8,
-        name: '部门H',
-        parentId: 4
+    const obj = {
+      name: 'lyq',
+      fn: function (a) {
+        console.log('a: ', a);
+        return this.name;
       }
-    ];
+    };
 
-    function toTree(data) {
-      const tree = [];
-      const obj = [];
+    const obj2 = {
+      name: 'ck'
+    };
 
-      data.forEach(item => {
-        item.children = [];
-        obj[item.id] = item;
-      });
+    Function.prototype.myCall = function (context) {
+      context = context || window;
 
-      data.forEach(item => {
-        console.log('item: ', item.parentId);
-        if (item.parentId) {
-          obj[item.parentId].children.push(item);
-        } else {
-          tree.push(item);
-        }
-      });
+      const args = [...arguments].slice(1);
 
-      return tree;
-    }
+      context.fn = this;
 
-    console.log(toTree(arr));
+      let result = context.fn(args);
+
+      return result;
+    };
+
+    console.log(obj.fn.myCall(obj2, [1, 2, 3]));
   </script>
 </html>
