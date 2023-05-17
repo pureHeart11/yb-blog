@@ -1,42 +1,16 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Lazyload</title>
-    <style>
-      img {
-        display: block;
-        margin-bottom: 50px;
-        height: 200px;
-        width: 400px;
-      }
-    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
   </head>
-  <body></body>
-  <script>
-    const obj = {
-      name: 'lyq',
-      fn: function (a) {
-        console.log('a: ', a);
-        return this.name;
-      }
-    };
-
-    const obj2 = {
-      name: 'ck'
-    };
-
-    Function.prototype.myCall = function (context) {
-      context = context || window;
-
-      const args = [...arguments].slice(1);
-
-      context.fn = this;
-
-      let result = context.fn(args);
-
-      return result;
-    };
-
-    console.log(obj.fn.myCall(obj2, [1, 2, 3]));
-  </script>
+  <body>
+    <script>
+      const fn = type => {
+        return Object.prototype.toString.call(type).slice(8, -1);
+      };
+    </script>
+  </body>
 </html>
