@@ -5,12 +5,181 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      #container {
+        padding-left: 200px;
+        padding-right: 150px;
+        overflow: auto;
+      }
+      #container p {
+        float: left;
+      }
+      .center {
+        width: 100%;
+        background-color: lightcoral;
+      }
+      .left {
+        width: 200px;
+        position: relative;
+        left: -200px;
+        margin-left: -100%;
+        background-color: lightcyan;
+      }
+      .right {
+        width: 150px;
+        margin-right: -150px;
+        background-color: lightgreen;
+      }
+      .clearfix:after {
+        content: '';
+        display: table;
+        clear: both;
+      }
+    </style>
   </head>
   <body>
+    <div id="container" class="clearfix">
+      <p class="center">我是中间</p>
+      <p class="left">我是左边</p>
+      <p class="right">我是右边</p>
+    </div>
+
     <script>
-      const fn = type => {
-        return Object.prototype.toString.call(type).slice(8, -1);
-      };
+      const arr = [
+        {
+          id: 2,
+          name: '部门B',
+          parentId: 0
+        },
+        {
+          id: 3,
+          name: '部门C',
+          parentId: 1
+        },
+        {
+          id: 1,
+          name: '部门A',
+          parentId: 2
+        },
+        {
+          id: 4,
+          name: '部门D',
+          parentId: 1
+        },
+        {
+          id: 5,
+          name: '部门E',
+          parentId: 2
+        },
+        {
+          id: 6,
+          name: '部门F',
+          parentId: 3
+        },
+        {
+          id: 7,
+          name: '部门G',
+          parentId: 2
+        },
+        {
+          id: 8,
+          name: '部门H',
+          parentId: 4
+        }
+      ];
+
+      const newArr = [
+        { id: 1, name: 'i1', parentId: 4 },
+        { id: 2, name: 'i2', parentId: 1 },
+        { id: 3, name: 'i3', parentId: 2 },
+        { id: 4, name: 'i4', parentId: 3 }
+      ];
+
+      // function transform(input) {
+      //   console.log('input: ', input);
+      //   // 构建一个以 id 为键的映射表
+      //   const map = {};
+      //   input.forEach(item => {
+      //     map[item.id] = item;
+      //     item.children = [];
+      //   });
+
+      //   // 将子节点添加到对应的父节点上
+      //   const root = {};
+      //   input.forEach(item => {
+      //     const parentId = item.parentId;
+      //     if (parentId) {
+      //       const parent = map[parentId];
+      //       if (parent) {
+      //         parent.children.push(item);
+      //       }
+      //     } else {
+      //       Object.assign(root, item);
+      //     }
+      //   });
+
+      //   return root;
+      // }
+
+      // console.log(transform(newArr));
+
+      function transform(input) {
+        // 构建一个以 id 为键的映射表
+        const map = {};
+        input.forEach(item => {
+          map[item.id] = item;
+          item.children = [];
+        });
+
+        // 将子节点添加到对应的父节点上
+        const root = {};
+        input.forEach(item => {
+          const parentId = item.parentId;
+          if (parentId) {
+            const parent = map[parentId];
+            if (parent) {
+              parent.children.push(item);
+            }
+          } else {
+            Object.assign(root, item);
+          }
+        });
+
+        return root;
+      }
+
+      // 测试样例
+      const input1 = [
+        { id: 1, name: 'i1' },
+        { id: 2, name: 'i2', parentId: 1 },
+        { id: 4, name: 'i4', parentId: 3 },
+        { id: 3, name: 'i3', parentId: 2 }
+      ];
+
+      console.log(JSON.stringify(transform(input1), null, 2));
+      // console.log(transform(input1));
+    </script>
+    <script>
+      function toTree(items) {
+        let map = {};
+        items.forEach(item => {
+          map[item.id] = item;
+          item.children = [];
+        });
+
+        let root = {};
+        items.forEach(item => {
+          const parentId = item.parentId;
+          if (parentId) {
+            const parent = map[parentId];
+            if (parent) {
+              parent.children.push(item);
+            }
+          } else {
+            Object.assign(root, item);
+          }
+        });
+      }
     </script>
   </body>
 </html>

@@ -44,24 +44,29 @@ const arr = [
   }
 ];
 
-function toTree(data) {
-  const tree = [];
-  const obj = [];
-
-  data.forEach(item => {
+function toTree(input) {
+  // 构建一个以 id 为键的映射表
+  const map = {};
+  input.forEach(item => {
+    map[item.id] = item;
     item.children = [];
-    obj[item.id] = item;
   });
 
-  data.forEach(item => {
-    if (item.parentId) {
-      obj[item.parentId].children.push(item);
+  // 将子节点添加到对应的父节点上
+  const root = {};
+  input.forEach(item => {
+    const parentId = item.parentId;
+    if (parentId) {
+      const parent = map[parentId];
+      if (parent) {
+        parent.children.push(item);
+      }
     } else {
-      tree.push(item);
+      Object.assign(root, item);
     }
   });
 
-  return tree;
+  return root;
 }
 
 console.log(toTree(arr));
