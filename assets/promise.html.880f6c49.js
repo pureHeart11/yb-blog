@@ -1,0 +1,1 @@
+const e={key:"v-60568ba7",path:"/code/promise.html",title:"",lang:"en-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1689825204e3,contributors:[{name:"\u674E\u5143\u5E86",email:"liyuanq@weipaitang.com",commits:2},{name:"yuanqing.li",email:"yuanqing.li@goscn.io",commits:1}]},filePathRelative:"code/promise.md"};export{e as data};

@@ -1,0 +1,1 @@
+const t={key:"v-d319510c",path:"/code/thousandthSplit.html",title:"",lang:"en-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1684306875e3,contributors:[{name:"\u674E\u5143\u5E86",email:"liyuanq@weipaitang.com",commits:4}]},filePathRelative:"code/thousandthSplit.md"};export{t as data};

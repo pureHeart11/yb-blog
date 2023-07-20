@@ -1,0 +1,1 @@
+const t={key:"v-5298f606",path:"/code/throttle.html",title:"",lang:"en-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1644915628e3,contributors:[{name:"\u674E\u5143\u5E86",email:"liyuanq@weipaitang.com",commits:1}]},filePathRelative:"code/throttle.md"};export{t as data};

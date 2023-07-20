@@ -1,0 +1,1 @@
+const e={key:"v-522cc471",path:"/code/deepClone.html",title:"",lang:"en-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1663574869e3,contributors:[{name:"\u674E\u5143\u5E86",email:"liyuanq@weipaitang.com",commits:3}]},filePathRelative:"code/deepClone.md"};export{e as data};

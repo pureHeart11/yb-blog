@@ -1,0 +1,1 @@
+const e={key:"v-21b1940a",path:"/code/curry.html",title:"",lang:"en-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1689825204e3,contributors:[{name:"yuanqing.li",email:"yuanqing.li@goscn.io",commits:1},{name:"\u674E\u5143\u5E86",email:"liyuanq@weipaitang.com",commits:1}]},filePathRelative:"code/curry.md"};export{e as data};
